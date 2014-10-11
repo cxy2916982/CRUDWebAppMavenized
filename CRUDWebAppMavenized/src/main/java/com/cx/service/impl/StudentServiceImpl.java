@@ -1,5 +1,6 @@
 package com.cx.service.impl;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +16,33 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentDao studentDao ;
-	
+
 	@Transactional
-	public void add(Student student) {
+	public void addStudent(Student student) {
 		studentDao.save(student);
 	}
 
 	@Transactional
-	public void edit(Student student) {
+	public void updateStudent(Student student) {
 		studentDao.update(student);
 	}
 
 	@Transactional
-	public void delete(int studentId) {
+	public void deleteStudentById(int studentId) {
 		studentDao.deleteByIds(studentId);
 	}
 
 	@Transactional
-	public Student getStudent(int studentId) {
+	public Student findStudentById(int studentId) {
 		return studentDao.findObjectById(studentId);
 	}
 
 	@Transactional
-	public List getAllStudent() {
-		return studentDao.findObjectsByConditionWithNoPage();
+	public List<Student> getAllStudent() {
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>() ;
+		orderby.put("o.id", "asc") ;
+		return studentDao.findObjectsByConditionWithNoPage(orderby);
 	}
+	
 
 }

@@ -27,7 +27,6 @@ public class CommonDaoImpl<T> implements CommonDao<T> {
 	public void save(T entity) {
 		session.getCurrentSession().save(entity);
 	}
-	
 
 	public void update(T entity) {
 		session.getCurrentSession().update(entity);

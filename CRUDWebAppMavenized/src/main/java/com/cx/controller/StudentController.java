@@ -32,19 +32,19 @@ public class StudentController {
 		Student studentResult = new Student() ;
 		switch (action.toLowerCase()) {
 		case "add":	
-			studentService.add(student);
+			studentService.addStudent(student);
 			studentResult = student ;
 			break ;
 		case "edit":
-			studentService.edit(student);
+			studentService.updateStudent(student);
 			studentResult = student ;
 			break ;
 		case "delete":
-			studentService.delete(student.getStudentId());
+			studentService.deleteStudentById(student.getStudentId());
 			studentResult = student ;
 			break ;
 		case "search":
-			Student searchedStudent = studentService.getStudent(student.getStudentId());
+			Student searchedStudent = studentService.findStudentById(student.getStudentId());
 			studentResult = searchedStudent!=null ? searchedStudent : new Student();
 			break ;
 		}

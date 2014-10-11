@@ -9,9 +9,10 @@ public class GenericClass {
 	 * @param clazz
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public static Class getGenericClass(Class clazz) {
 		ParameterizedType  type=(ParameterizedType)clazz.getGenericSuperclass();
-		
+		System.out.println("type " + type);
 		/*
 		 * cn.itcast.crm.dao.impl.CommonDaoImpl<cn.itcast.crm.domain.SysUserGroup>
 		 * CommonDaoImpl<SysUserGroup>
