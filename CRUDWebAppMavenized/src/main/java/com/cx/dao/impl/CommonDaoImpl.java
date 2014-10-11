@@ -18,6 +18,7 @@ import com.cx.util.GenericClass;
 public class CommonDaoImpl<T> implements CommonDao<T> {
 	
 	/**获取父类的泛型类型***/
+	@SuppressWarnings("rawtypes")
 	private Class entityClass=GenericClass.getGenericClass(this.getClass());
 	
 	@Autowired
