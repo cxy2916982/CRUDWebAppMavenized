@@ -18,27 +18,27 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Transactional
 	public void add(Student student) {
-		studentDao.add(student);
+		studentDao.save(student);
 	}
 
 	@Transactional
 	public void edit(Student student) {
-		studentDao.edit(student);
+		studentDao.update(student);
 	}
 
 	@Transactional
 	public void delete(int studentId) {
-		studentDao.delete(studentId);
+		studentDao.deleteByIds(studentId);
 	}
 
 	@Transactional
 	public Student getStudent(int studentId) {
-		return studentDao.getStudent(studentId);
+		return studentDao.findObjectById(studentId);
 	}
 
 	@Transactional
 	public List getAllStudent() {
-		return studentDao.getAllStudent();
+		return studentDao.findObjectsByConditionWithNoPage();
 	}
 
 }
